@@ -1,0 +1,13 @@
+.item:not(:nth-last-child(1)){
+    border-bottom: 1px solid;
+}
+.item h2{
+    float: left;
+}
+.float-right-top{
+    float: right;
+    margin: 2em;
+}
+.item p{
+    clear: both;
+}
