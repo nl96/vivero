@@ -1,3 +1,30 @@
+body {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+#login {
+    display: none;
+    width: auto;
+    background-color: aliceblue ;
+    transform: translate(-50%, 0%);
+    margin-left: 50%;
+}
+#login #logout {
+    display: block;
+    margin-left: auto;
+}
+#filter-price fieldset{
+    background-color: aliceblue;
+}
+legend{
+    background-color: inherit;
+    border: inherit;
+    border-radius: 1em 1em 0em 0em / 1em;
+    border-right-style: ridge;
+    border-bottom-width: 0;
+}
+
+
 .item:not(:nth-last-child(1)){
     border-bottom: 1px solid;
 }
