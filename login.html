@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+    body {
+        background: white;
+    }
+    section {
+        background-color:yellowgreen;
+        border: darkgreen 1px solid;
+        color: black;
+        border-radius: .5em;
+        padding: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    input{
+        display: block;
+        margin-bottom: 1em;
+    }
+    button{
+        display: block;
+        margin-left: auto;
+    }
+    </style>
+      <script src="init.js"></script>
+      <script src="login.js"></script>
+</head>
+<body>
+    <section class="form-signin">
+        <img class="" src="https://www.svgrepo.com/show/267518/plant-crops.svg" alt="" width="72" height="72">
+        <h1 class="">Inicio de sesión</h1>
+        <label for="inputEmail">Email:</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+        <label for="inputPassword">Contraseña:</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+        <button class="" type="submit" id="submit">Ingresar</button>
+    </section>
+</body>
+</html>
