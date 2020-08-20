@@ -13,6 +13,14 @@ body {
     display: block;
     margin-left: auto;
 }
+#sort-list {
+    display: flex;
+    margin: 0 0 1em;
+}
+#sort-title, #sort-price, #sort-code {
+    background-color: aliceblue;
+    width: calc( 100% / 3 );
+}
 #filter-price fieldset{
     background-color: aliceblue;
 }

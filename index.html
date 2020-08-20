@@ -16,6 +16,29 @@
         <input id="logout" type="button" value="Salir">
     </fieldset>
     <h1>Árboles frutales disponibles en el vivero:</h1>
+
+    <div id="sort-list">
+
+        <fieldset id="sort-title">
+            <legend>Ordenar por título</legend>
+            <input type="button" id="sortTitleAsc" value="Asendente"/>
+            <input type="button" id="sortTitleDesc" value="Desendente"/>
+        </fieldset>
+
+        <fieldset id="sort-price">
+            <legend>Ordenar por precio</legend>
+            <input type="button" id="sortPriceAsc" value="Asendente"/>
+            <input type="button" id="sortPriceDesc" value="Desendente"/>
+        </fieldset>
+
+        <fieldset id="sort-code">
+            <legend>Ordenar por código</legend>
+            <input type="button" id="sortCodeAsc" value="Asendente"/>
+            <input type="button" id="sortCodeDesc" value="Desendente"/>
+        </fieldset>
+
+    </div>
+
     <div id="filter-price">
         <fieldset>
             <legend>Filtrar por precio</legend>
@@ -23,8 +46,9 @@
             <input type="number" id="max-value" placeholder="Max." min="0"/> 
             <input type="button" id="filter" value="Filtrar"/>
             <input type="button" id="erase" value="Limpiar"/>
-      </fieldset>
+        </fieldset>
     </div>
+
     <div id="listado"></div>
 </body>
 
