@@ -12,28 +12,6 @@ const ORDER_DESC_BY_PRICE = "9->0";
 const ORDER_ASC_BY_CODE = "CodAsc";
 const ORDER_DESC_BY_CODE = "CodDesc";
 
-function showItemsList(array){
-
-    let item = "";
-    for(let i = 0; i < array.length; i++){
-        let pos = array[i];
-
-        if ((minPrice == undefined || (minPrice != undefined && minPrice <= parseInt(pos.price))) && 
-            (maxPrice == undefined || (maxPrice != undefined && maxPrice >= parseInt(pos.price)))) {
-
-            item += `
-            <div class="item">
-                <h2 class="">`+ pos.title +`</h2>
-                <span class="float-right-top" title="` + pos.currency + `"> Precio: $` + pos.price + `</span>
-                <span class="float-right-top"> Código: ` + pos.code + `</span>
-                <p>` + pos.description + `</p>
-            </div>`
-        }
-
-        document.getElementById("listado").innerHTML = item;
-    }
-}
-
 function sortItemsList(criterio, array){
     let result = [];
     if (criterio === ORDER_ASC_BY_TITLE){
@@ -89,6 +67,51 @@ function sortItemsList(criterio, array){
     return result;
 }
 
+// Busco
+let termSerach = undefined;
+
+function search(find) {
+    return (find.toLowerCase()).search(termSerach.toLowerCase());
+}
+function markWordsSearch(mark){
+    if (termSerach != undefined) {
+        let xPos = search(mark);
+        let word = "";
+        if (xPos != -1) {
+            for (let i = xPos; i < (xPos + termSerach.length); i++ ) {
+                word += mark.charAt(i);
+            }
+        }
+        return mark.replace(word, "<mark>"+word+"</mark>");
+    } else {
+        return mark
+    }
+}
+
+function showItemsList(array){
+
+    let item = "";
+    for(let i = 0; i < array.length; i++){
+        let pos = array[i];
+        
+        if (termSerach == undefined || search(pos.title) >= 0 || search(pos.description) >= 0) {
+
+            if ((minPrice == undefined || (minPrice != undefined && minPrice <= parseInt(pos.price))) && 
+                (maxPrice == undefined || (maxPrice != undefined && maxPrice >= parseInt(pos.price)))) {
+
+                item += `
+                <div class="item">
+                    <h2 class="">`+ markWordsSearch(pos.title) +`</h2>
+                    <span class="float-right-top" title="` + pos.currency + `"> Precio: $` + pos.price + `</span>
+                    <span class="float-right-top"> Código: ` + pos.code + `</span>
+                    <p>` + markWordsSearch(pos.description) + `</p>
+                </div>`
+            }
+        }
+        document.getElementById("listado").innerHTML = item;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function(e){
 
     getJSONData(LIST_URL_FRUTALES).then(function(resultObj){
@@ -139,37 +162,43 @@ document.addEventListener("DOMContentLoaded", function(e){
         showItemsList(frutalesArray);
     });
 
-
+    // Ordenado
     document.getElementById("sortTitleAsc").addEventListener("click", function(){
         frutalesArray = sortItemsList(ORDER_ASC_BY_TITLE, frutalesArray);
-        //Muestro los productos ordenados
+        //Muestro los productos ordenados por título de forma ascendente
         showItemsList(frutalesArray);
     });
     document.getElementById("sortTitleDesc").addEventListener("click", function(){
         frutalesArray = sortItemsList(ORDER_DESC_BY_TITLE, frutalesArray);
-        //Muestro los productos ordenados
+        //Muestro los productos ordenados por título de forma descendente
         showItemsList(frutalesArray);
     });
 
     document.getElementById("sortPriceAsc").addEventListener("click", function(){
         frutalesArray = sortItemsList(ORDER_ASC_BY_PRICE, frutalesArray);
-        //Muestro los productos ordenados
+        //Muestro los productos ordenados por precio de forma ascendente
         showItemsList(frutalesArray);
     });
     document.getElementById("sortPriceDesc").addEventListener("click", function(){
         frutalesArray = sortItemsList(ORDER_DESC_BY_PRICE, frutalesArray);
-        //Muestro los productos ordenados
+        //Muestro los productos ordenados por precio de forma descendente
         showItemsList(frutalesArray);
     });
 
     document.getElementById("sortCodeAsc").addEventListener("click", function(){
         frutalesArray = sortItemsList(ORDER_ASC_BY_CODE, frutalesArray);
-        //Muestro los productos ordenados
+        //Muestro los productos ordenados por código de forma ascendente
         showItemsList(frutalesArray);
     });
     document.getElementById("sortCodeDesc").addEventListener("click", function(){
         frutalesArray = sortItemsList(ORDER_DESC_BY_CODE, frutalesArray);
-        //Muestro los productos ordenados
+        //Muestro los productos ordenados por código de forma descendente
+        showItemsList(frutalesArray);
+    });
+
+    document.getElementById("inputSearch").addEventListener("click", function(){
+        termSerach = document.getElementById("search").value;
+        //Muestro los productos por busqueda
         showItemsList(frutalesArray);
     });
 

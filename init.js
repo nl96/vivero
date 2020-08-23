@@ -25,19 +25,20 @@ var getJSONData = function(url){
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
-  let userLogged = localStorage.getItem("User-Logged");
-  let infoUser = document.getElementById("login");
-  let user = document.getElementById("user");
+  if (document.getElementById("login")){
+    let userLogged = localStorage.getItem("User-Logged");
+    let infoUser = document.getElementById("login");
+    let user = document.getElementById("user");
 
-  if (userLogged) {
-    infoUser.style.display = "inline-block";
-    userLogged = JSON.parse(userLogged);
-    user.innerText = user.innerText + "Usuario logeado: " + userLogged.email;
+    if (userLogged) {
+      infoUser.style.display = "inline-block";
+      userLogged = JSON.parse(userLogged);
+      user.innerText = user.innerText + "Usuario logeado: " + userLogged.email;
+    }
+
+    document.getElementById("logout").addEventListener("click", function(){
+      localStorage.removeItem("User-Logged");
+      window.location = "login.html";
+    });
   }
-
-  document.getElementById("logout").addEventListener("click", function(){
-    localStorage.removeItem("User-Logged");
-    window.location = "login.html";
-  });
-  
 });

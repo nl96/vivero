@@ -1,3 +1,4 @@
+* {font-family: Arial, Helvetica, sans-serif;}
 body {
     padding-left: 2em;
     padding-right: 2em;
@@ -15,13 +16,15 @@ body {
 }
 #sort-list {
     display: flex;
-    margin: 0 0 1em;
+    margin: 1em 0;
 }
 #sort-title, #sort-price, #sort-code {
-    background-color: aliceblue;
     width: calc( 100% / 3 );
 }
-#filter-price fieldset{
+#filter-price {
+    margin: 1em 0;
+}
+fieldset{
     background-color: aliceblue;
 }
 legend{
@@ -45,4 +48,7 @@ legend{
 }
 .item p{
     clear: both;
+}
+footer{
+    height: 4em;
 }
