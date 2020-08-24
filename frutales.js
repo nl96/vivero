@@ -196,8 +196,18 @@ document.addEventListener("DOMContentLoaded", function(e){
         showItemsList(frutalesArray);
     });
 
-    document.getElementById("inputSearch").addEventListener("click", function(){
+    document.getElementById("search").addEventListener("keyup", function(){
         termSerach = document.getElementById("search").value;
+        document.getElementById("inputErase").removeAttribute("hidden");
+    if (termSerach == ""){
+        document.getElementById("inputErase").setAttribute("hidden", true);
+    }
+        //Muestro los productos por busqueda
+        showItemsList(frutalesArray);
+    });
+    document.getElementById("inputErase").addEventListener("click", function(){
+        document.getElementById("search").value = "";
+        termSerach = undefined;
         //Muestro los productos por busqueda
         showItemsList(frutalesArray);
     });
