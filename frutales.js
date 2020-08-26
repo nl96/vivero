@@ -68,17 +68,17 @@ function sortItemsList(criterio, array){
 }
 
 // Busco
-let termSerach = undefined;
+let termSearch = undefined;
 
 function search(find) {
-    return (find.toLowerCase()).search(termSerach.toLowerCase());
+    return (find.toLowerCase()).search(termSearch.toLowerCase());
 }
 function markWordsSearch(mark){
-    if (termSerach != undefined) {
+    if (termSearch != undefined) {
         let xPos = search(mark);
         let word = "";
         if (xPos != -1) {
-            for (let i = xPos; i < (xPos + termSerach.length); i++ ) {
+            for (let i = xPos; i < (xPos + termSearch.length); i++ ) {
                 word += mark.charAt(i);
             }
         }
@@ -94,7 +94,7 @@ function showItemsList(array){
     for(let i = 0; i < array.length; i++){
         let pos = array[i];
         
-        if (termSerach == undefined || search(pos.title) >= 0 || search(pos.description) >= 0) {
+        if (termSearch == undefined || search(pos.title) >= 0 || search(pos.description) >= 0) {
 
             if ((minPrice == undefined || (minPrice != undefined && minPrice <= parseInt(pos.price))) && 
                 (maxPrice == undefined || (maxPrice != undefined && maxPrice >= parseInt(pos.price)))) {
@@ -197,17 +197,17 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     document.getElementById("search").addEventListener("keyup", function(){
-        termSerach = document.getElementById("search").value;
+        termSearch = document.getElementById("search").value;
         document.getElementById("inputErase").removeAttribute("hidden");
-    if (termSerach == ""){
-        document.getElementById("inputErase").setAttribute("hidden", true);
-    }
+        if (termSearch == ""){
+            document.getElementById("inputErase").setAttribute("hidden", true);
+        }
         //Muestro los productos por busqueda
         showItemsList(frutalesArray);
     });
     document.getElementById("inputErase").addEventListener("click", function(){
         document.getElementById("search").value = "";
-        termSerach = undefined;
+        termSearch = undefined;
         //Muestro los productos por busqueda
         showItemsList(frutalesArray);
     });
