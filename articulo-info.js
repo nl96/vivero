@@ -73,8 +73,8 @@ function addNewComment() {
     let comment = newComment.value;
     
     let rate = document.getElementById("rate");
-    rate.removeAttribute("class");
-    newComment.removeAttribute("class");
+    rate.classList.remove("sendCommentInvalid");
+    newComment.classList.remove("sendCommentInvalid");
     
     if(userLogged && comment != "" && getStarValue("stars") != undefined){
         let time = new Date();
