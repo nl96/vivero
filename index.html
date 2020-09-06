@@ -4,12 +4,30 @@
 <head>
     <meta charset="UTF-8" />
     <title>Vivero - Árboles frutales</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="init.js"></script>
     <script src="frutales.js"></script>
 </head>
 
 <body>
+    <header>
+		<div id="logo">
+            <a href="index.html">
+                <img src="img/Vivero-logo.svg" alt="Eslogan">
+                <span>Vivero</span>
+            </a>
+        </div>
+		<!--Menús de navegación-->
+		<nav>
+			<ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Categorias</a></li>
+                <li><a href="#">Fotografías</a></li>
+			</ul>
+        </nav>
+    </header>
+  <main>
     <fieldset id="login">
         <legend>Sesión</legend>
         <p id="user"></p>
@@ -42,21 +60,24 @@
     <div id="filter-price">
         <fieldset>
             <legend>Filtrar por precio</legend>
-            <input type="number" id="min-value" placeholder="Min." min="0"/> 
-            <input type="number" id="max-value" placeholder="Max." min="0"/> 
+            <input type="number" id="min-value" placeholder="Min." min="0"/>
+            <input type="number" id="max-value" placeholder="Max." min="0"/>
             <input type="button" id="filter" value="Filtrar"/>
             <input type="button" id="erase" value="Limpiar"/>
         </fieldset>
     </div>
 
-    <fieldset>
-        <legend>Busqueda</legend>
-        <input type="search" id="search" placeholder="Escriba aquí"/>
-        <input type="button" id="inputErase" value="Borrar" hidden/>
-    </fieldset>
+    <div id="search-item">
+        <fieldset>
+            <legend>Busqueda</legend>
+            <input type="search" id="search" placeholder="Escriba aquí"/>
+            <input type="button" id="inputErase" value="Borrar" hidden/>
+        </fieldset>
+    </div>
 
     <div id="listado"></div>
-    <footer></footer>
+  </main>
+  <footer></footer>
 </body>
 
 </html>
