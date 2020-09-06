@@ -1,12 +1,96 @@
 * {font-family: Arial, Helvetica, sans-serif;}
 body {
-    padding-left: 2em;
-    padding-right: 2em;
+    margin: 0;
+    background-color: #f2f2f2;
 }
+
+/*************Header*************/
+body > header {
+    text-align: center;
+    color: black;
+    background-color: lightblue;
+    border-bottom: 3px solid #111717;
+    margin-bottom: 3em;
+}
+header #logo {
+    display: inline-block;
+    text-align: center;
+}
+header #logo a {
+    display: inline-block;
+    text-decoration: none;
+}
+header #logo img {
+    width:75px;
+    vertical-align: middle;
+    margin: 0 .5em;
+}
+header #logo span {
+    color: black;
+    font-family: cursive;
+    font-size: 2em;
+    vertical-align: text-top;
+}
+/*************Navigation bar*************/
+header nav {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 75%;
+}
+header nav ul {
+    margin: 0;
+    padding: 0;
+}
+header nav ul li {
+    display: inline-block;
+    list-style-type: none;
+    padding: .5em .1em;
+    margin-top: 3px;
+}
+header nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    background-color: #CEE8F0;
+    padding: .5em 2em;
+}
+header nav ul li a:hover {
+    text-decoration: underline;
+    background-color: #fff9;
+}
+
+/*************Main*************/
+main{
+    background-color:  white;
+    margin: 2em 3em;
+    padding: 1em;
+}
+main > h1{
+    padding: 0 .5em;
+}
+
+/*************Buttons*************/
+input[type="button"], input[type="submit"]{
+    color: black;
+    border:1px solid #CEE8F0;
+    border-radius: 4px;
+    padding: .5em;
+    background-color: lightblue;
+    cursor: pointer;
+}
+input[type="button"]:hover, input[type="submit"]:hover{
+    background-color: #CEE8F0;
+}
+input[type="number"], input[type="search"], input[type="submit"]{
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    padding: .5em;
+}
+
+/*************Login*************/
 #login {
     display: none;
     width: auto;
-    background-color: aliceblue ;
+    background-color: aliceblue;
     transform: translate(-50%, 0%);
     margin-left: 50%;
 }
@@ -14,28 +98,48 @@ body {
     display: block;
     margin-left: auto;
 }
-#sort-list {
-    display: flex;
-    margin: 1em 0;
+
+footer{
+    height: 4em;
 }
-#sort-title, #sort-price, #sort-code {
-    width: calc( 100% / 3 );
-}
-#filter-price {
-    margin: 1em 0;
-}
+
+/*************fieldset*************/
 fieldset{
-    background-color: aliceblue;
+    margin-left: 0;
+    margin-right: 0;
+    /* border-left: 0;
+    border-right: 0;
+    border-radius: 1em 1em 1em 1em / 1em; */
+    border:none;
+    border: 1px solid gray;
 }
 legend{
-    background-color: inherit;
+    /* background-color: inherit;
     border: inherit;
     border-radius: 1em 1em 0em 0em / 1em;
     border-right-style: ridge;
-    border-bottom-width: 0;
+    border-bottom-width: 0; */
+    border:none;
+    padding: 0 .5em
 }
 
+#sort-list, #sort-title, #sort-price, #sort-code,
+#filter-price, #search-item {
+    margin: .2em 0;
+}
+#sort-list, #sort-title, #sort-price, #sort-code,
+#filter-price {
+    display: inline-block;
+}
 
+/*************List*************/
+#listado{
+    clear: both;
+    padding: 0 1em;
+}
+.item{
+    margin:.5em 0;
+}
 .item:not(:nth-last-child(1)){
     border-bottom: 1px solid;
 }
@@ -49,6 +153,119 @@ legend{
 .item p{
     clear: both;
 }
-footer{
-    height: 4em;
+
+/*************Comments*************/
+#comments{
+    display: block;
+    margin: 2em auto 2em auto;
+    width: 70%;
 }
+#list-comments{
+    margin: 4em 0;
+}
+#list-comments .comment{
+    display: block;
+    width: auto;
+}
+.time{
+    color:gray;
+}
+#post-comment{
+    display: inline-block;
+    width: auto;
+    padding: 0 1em 1em;
+}
+.comment{
+    display: inline-block;
+    width: auto;
+    position: relative;
+}
+#new-comment{
+    display: block;
+    border: 1px solid darkgray;
+    border-radius: 4px;
+    padding: 0.75em;
+    margin-top: 28px;
+    width: calc(100% - (1.5em + 2px));
+    max-width: calc(800px - (1.5em + 2px));
+    min-width: 200px;
+    min-height: 40px;
+}
+/*************Checkbox stars*************/
+#score, .score{
+    display: inline-block;
+    position: absolute;
+    top:0;
+    right: 0;
+    margin: 5px;
+    cursor: default;
+    border:1px solid transparent;
+    border-radius: 4px;
+}
+.box{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: bottom;
+}
+label.box{
+    cursor: pointer;
+}
+.star{
+    display: block;
+	position: relative;
+    border-left:10px transparent solid;
+    border-right:10px transparent solid;
+    border-top:7.265px lightgray solid;
+    margin: 6.3675px 0;
+}
+.star::before, .star::after{
+    content: '';
+    position: absolute;
+    top:-7.375px;
+    left:-10.4px;
+    transform-origin: 50% 50%;
+    transform: rotate(72deg);
+    border-left: inherit;
+    border-right: inherit;
+    border-top: inherit;
+}
+.star::after{
+    left:-9.6px;
+    transform: rotate(-72deg);
+}
+input#star-1:checked ~ label#star1 span.star,
+input#star-2:checked ~ label#star1 span.star,
+input#star-3:checked ~ label#star1 span.star,
+input#star-4:checked ~ label#star1 span.star,
+input#star-5:checked ~ label#star1 span.star,
+
+input#star-2:checked ~ label#star2 span.star,
+input#star-3:checked ~ label#star2 span.star,
+input#star-4:checked ~ label#star2 span.star,
+input#star-5:checked ~ label#star2 span.star,
+
+input#star-3:checked ~ label#star3 span.star,
+input#star-4:checked ~ label#star3 span.star,
+input#star-5:checked ~ label#star3 span.star,
+
+input#star-4:checked ~ label#star4 span.star,
+input#star-5:checked ~ label#star4 span.star,
+
+input#star-5:checked ~ label#star5 span.star, .star-active {
+    border-top-color: orange;
+}
+#sendComment{
+    display: block;
+    margin: .5em 0 0 auto;
+}
+.sendCommentInvalid {
+  animation: flicker .25s ease-in-out 3 forwards reverse;
+}
+@keyframes flicker {
+  from {
+    border-color: red;
+  }
+  to {
+    border-color: white;
+  }
