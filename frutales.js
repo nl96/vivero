@@ -70,12 +70,14 @@ function sortItemsList(criterio, array){
 // Busco
 let termSearch = undefined;
 
-function search(find) {
-    return (find.toLowerCase()).search(termSearch.toLowerCase());
+function search(text1, text2) {
+	text = text1 + " " + text2;
+    return (text.toLowerCase()).search(termSearch.toLowerCase());
 }
+
 function markWordsSearch(mark){
     if (termSearch != undefined) {
-        let xPos = search(mark);
+        let xPos = (mark.toLowerCase()).search(termSearch.toLowerCase());
         let word = "";
         if (xPos != -1) {
             for (let i = xPos; i < (xPos + termSearch.length); i++ ) {
@@ -94,7 +96,7 @@ function showItemsList(array){
     for(let i = 0; i < array.length; i++){
         let pos = array[i];
         
-        if (termSearch == undefined || search(pos.title) >= 0 || search(pos.description) >= 0) {
+        if (termSearch == undefined || search(pos.title, pos.description) >= 0) {
 
             if ((minPrice == undefined || (minPrice != undefined && minPrice <= parseInt(pos.price))) && 
                 (maxPrice == undefined || (maxPrice != undefined && maxPrice >= parseInt(pos.price)))) {
@@ -102,14 +104,21 @@ function showItemsList(array){
                 item += `
                 <div class="item">
                     <h2 class="">`+ markWordsSearch(pos.title) +`</h2>
+                    <input type="button" class="float-right-top" value="Acceder" onclick="acceder(` + pos.code + `)"/>
                     <span class="float-right-top" title="` + pos.currency + `"> Precio: $` + pos.price + `</span>
-                    <span class="float-right-top"> Código: ` + pos.code + `</span>
+                    <span class="float-right-top" hidden> Código: ` + pos.code + `</span>
                     <p>` + markWordsSearch(pos.description) + `</p>
                 </div>`
             }
         }
         document.getElementById("listado").innerHTML = item;
     }
+}
+
+// Acceder
+function acceder(code){
+    localStorage.setItem("articulo", JSON.stringify({articleCode: code}));
+    window.location = "articulo-info.html";
 }
 
 document.addEventListener("DOMContentLoaded", function(e){
@@ -207,6 +216,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
     document.getElementById("inputErase").addEventListener("click", function(){
         document.getElementById("search").value = "";
+        document.getElementById("inputErase").setAttribute("hidden", true);
         termSearch = undefined;
         //Muestro los productos por busqueda
         showItemsList(frutalesArray);

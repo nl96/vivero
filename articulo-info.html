@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Vivero - Artículo info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="init.js"></script>
+    <script src="articulo-info.js"></script>
+</head>
+
+<body>
+    <header>
+		<div id="logo">
+            <a href="index.html">
+                <img src="img/Vivero-logo.svg" alt="Eslogan">
+                <span>Vivero</span>
+            </a>
+        </div>
+		<!--Menús de navegación-->
+		<nav>
+			<ul>
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="#">Categorias</a></li>
+				<li><a href="#">Fotografías</a></li>
+			</ul>
+        </nav>
+    </header>
+    <fieldset id="login">
+        <legend>Sesión</legend>
+        <p id="user"></p>
+        <input id="logout" type="button" value="Salir">
+    </fieldset>
+    <main>
+        <header>
+            <p><a href="index.html">Frutales</a> &gt; <a href="articulo-info.html">Artículo info</a></p>
+        </header>
+        <h1 id="title"></h1>
+        <p id="description"></p>
+        <p><span id="currency"></span> <span id="price"></span></p>
+        <div id="comments">
+            <div id="list-comments"></div>
+            <div id="boxComment" hidden>
+                <fieldset id="post-comment">
+                    <legend>Comentar y calificar</legend>
+                        <div class="comment">
+                            <textarea name="new-comment" id="new-comment" cols="50" rows="5" placeholder="Escriba aquí..."></textarea>
+
+                            <div id="rate" class="score">
+                                <input type="radio" name="stars" id="star-1" value="1" hidden required>
+                                <input type="radio" name="stars" id="star-2" value="2" hidden>
+                                <input type="radio" name="stars" id="star-3" value="3" hidden>
+                                <input type="radio" name="stars" id="star-4" value="4" hidden>
+                                <input type="radio" name="stars" id="star-5" value="5" hidden>
+                                
+                                <label for="star-1" id="star1" class="box">
+                                    <span class="star"></span>
+                                </label>
+                                <label for="star-2" id="star2" class="box">
+                                    <span class="star"></span>
+                                </label>
+                                <label for="star-3" id="star3" class="box">
+                                    <span class="star"></span>
+                                </label>
+                                <label for="star-4" id="star4" class="box">
+                                    <span class="star"></span>
+                                </label>
+                                <label for="star-5" id="star5" class="box">
+                                    <span class="star"></span>
+                                </label>
+                            </div>
+
+                            <input id="sendComment" type="submit" value="Enviar" onclick="addNewComment()">
+                        </div>
+                </fieldset>
+            </div>
+        </div>
+    </main>
+
+
+    <footer></footer>
+</body>
+
+</html>

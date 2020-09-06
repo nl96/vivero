@@ -1,0 +1,72 @@
+[
+    {
+        "articleId": 0,
+        "user": "donnadie@email.com",
+        "date": "11/5/2020 9:09",
+        "stars": 3,
+        "comment": "Delectus eaque quis ab deleniti, amet quidem architecto veritatis. Eum, culpa commodi voluptates eligendi sit sapiente temporibus omnis neque provident repellat aspernatur!"
+    },
+    {
+        "articleId": 0,
+        "user": "maria@mimail.com",
+        "date": "13/6/2020 13:45",
+        "stars": 1,
+        "comment": "Vitae ipsam enim in doloremque, voluptate libero vero corrupti! Voluptate iure error omnis, voluptas non assumenda voluptates modi tempore accusantium. Provident, delectus?"
+    },
+    {
+        "articleId": 1,
+        "user": "quijote@smail.com",
+        "date": "10/2/2020 15:34",
+        "stars": 5,
+        "comment": "Corrupti ducimus perferendis reprehenderit eum rerum debitis laudantium itaque saepe fugit et harum, architecto, ad porro exercitationem distinctio mollitia temporibus voluptatum officia."
+    },
+    {
+        "articleId": 2,
+        "user": "mateo@email.com",
+        "date": "05/1/2019 7:23",
+        "stars": 3,
+        "comment": "Sapiente id quia aliquam dolore neque illum tempore voluptatum dolor exercitationem laudantium officia nihil architecto excepturi, ad incidunt at velit dolorem asperiores?"
+    },
+    {
+        "articleId": 4,
+        "user": "donramon@mail.com",
+        "date": "4/2/2019 18:03",
+        "stars": 5,
+        "comment": "Nobis ut eum voluptas laboriosam libero quos enim esse velit magnam assumenda? Fugit possimus qui modi nostrum explicabo suscipit sapiente, corrupti rem."
+    },
+    {
+        "articleId": 4,
+        "user": "juanlopez@mail.com",
+        "date": "12/9/2019 14:20",
+        "stars": 3,
+        "comment": "Corrupti ducimus perferendis reprehenderit eum rerum debitis laudantium itaque saepe fugit et harum, architecto, ad porro exercitationem distinctio mollitia temporibus voluptatum officia."
+    },
+    {
+        "articleId": 4,
+        "user": "donnadie@email.com",
+        "date": "01/5/2020 16:09",
+        "stars": 4,
+        "comment": "Aliquid, deserunt iusto maiores praesentium omnis corrupti tenetur debitis enim magnam cum suscipit eligendi molestias voluptatum a velit autem, distinctio nisi natus!"
+    },
+    {
+        "articleId": 4,
+        "user": "luis@email.com",
+        "date": "23/6/2020 15:30",
+        "stars": 1,
+        "comment": "Quod dolore tempora sed reprehenderit neque a nisi soluta nulla quisquam ullam! Voluptates eius accusamus, vitae veniam explicabo natus suscipit libero debitis!"
+    },
+    {
+        "articleId": 5,
+        "user": "josepedro@email.com",
+        "date": "18/8/2019 21:44",
+        "stars": 3,
+        "comment": "Sapiente id quia aliquam dolore neque illum tempore voluptatum dolor exercitationem laudantium officia nihil architecto excepturi, ad incidunt at velit dolorem asperiores?"
+    },
+    {
+        "articleId": 5,
+        "user": "manuela@mail.com",
+        "date": "30/4/2020 23:07",
+        "stars": 5,
+        "comment": "Illo ea, hic voluptatum animi exercitationem omnis quaerat velit non obcaecati saepe, harum illum consequatur maiores quam repellat blanditiis quo incidunt porro?"
+    }
+]
