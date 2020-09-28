@@ -27,7 +27,7 @@ var getJSONData = function(url){
 
 document.addEventListener("DOMContentLoaded", function (e) {
   if (document.getElementById("login")){
-    let userLogged = localStorage.getItem("User-Logged");
+    let userLogged = localStorage.getItem("Vivero-User-Logged");
     let infoUser = document.getElementById("login");
     let user = document.getElementById("user");
 
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
 
     document.getElementById("logout").addEventListener("click", function(){
-      localStorage.removeItem("User-Logged");
+      localStorage.removeItem("Vivero-User-Logged");
       window.location = "login.html";
     });
   }

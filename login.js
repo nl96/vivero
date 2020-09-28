@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         
                     if (validateUser(usersArray, inputEmail.value, inputPassword.value)) {
 
-                        localStorage.setItem("User-Logged", JSON.stringify({email: inputEmail.value}));
+                        localStorage.setItem("Vivero-User-Logged", JSON.stringify({email: inputEmail.value}));
                         
                         window.location = "index.html";
                     } else {

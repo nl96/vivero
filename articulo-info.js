@@ -68,7 +68,7 @@ function addNewComment() {
         }
         return t;
     }
-    let userLogged = JSON.parse(localStorage.getItem("User-Logged"));
+    let userLogged = JSON.parse(localStorage.getItem("Vivero-User-Logged"));
     let newComment = document.getElementById("new-comment");
     let comment = newComment.value;
     
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     });
     if (document.getElementById("boxComment")){
-      let userLogged = localStorage.getItem("User-Logged");
+      let userLogged = localStorage.getItem("Vivero-User-Logged");
   
       if (userLogged) {
         document.getElementById("boxComment").removeAttribute("hidden");

@@ -191,7 +191,7 @@ legend{
     min-height: 40px;
 }
 /*************Checkbox stars*************/
-#score, .score{
+.score{
     display: inline-block;
     position: absolute;
     top:0;
@@ -268,3 +268,4 @@ input#star-5:checked ~ label#star5 span.star, .star-active {
   to {
     border-color: white;
   }
+}
