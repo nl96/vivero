@@ -1,5 +1,6 @@
 const LIST_URL_FRUTALES = "https://nl96.github.io/vivero/frutales.json";
 const LIST_URL_COMENTARIOS = "https://nl96.github.io/vivero/comments.json";
+const LIST_URL_IMAGES = "https://nl96.github.io/vivero/article-img/code-img.json";
 const USUARIOS_URL = "https://danielk2020.github.io/biblioteca/usuarios.json";
 
 var getJSONData = function(url){

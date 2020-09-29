@@ -1,5 +1,6 @@
 let frutalesArray = [];
 let comentariosArray = [];
+let imagenesObjArray = {};
 
 // Muestro producto seleccionado
 function showArticle(code) {
@@ -14,6 +15,40 @@ function showArticle(code) {
         }
     }
 
+}
+// Muestro imágenes del producto seleccionado
+function showImages(code) {
+
+    let num = code.articleCode;
+    let imagesArray = imagenesObjArray[num];
+    let images = document.getElementById("images");
+    let mainImg = ``;
+    let navGallery = ``;
+
+    function setToFirstElement(i, setFirst, setDefault) {
+        if (i == 0 && setFirst != undefined) {
+            return setFirst;
+        } else {
+            return setDefault;
+        }
+    }
+    for (const img in imagesArray) {
+        mainImg += `<input type="radio" name="view" id="view${parseInt(img) + 1}" hidden  ${setToFirstElement(img, 'checked', '')}>
+                    <img src="article-img/${num}/${imagesArray[img]}" alt="">`;
+        if (imagesArray.length > 1){
+            navGallery += `<div>
+                            <label for="view${parseInt(img) + 1}"><img src="article-img/${num}/${imagesArray[img]}" alt=""></label>
+                        </div>`;
+        }
+        images.innerHTML = `
+                <div id="mainImg">
+                    <img class="prop" src="article-img/area.png" alt="" width="640" height="360">
+                    <div>${mainImg}</div>
+                </div>
+                <div id="navGallery">
+                    <div class="center">${navGallery}</div>
+                </div>`;
+    }
 }
 
 // Muentro comentarios del producto seleccionado
@@ -116,6 +151,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             comentariosArray = resultObj.data;
             showComments(JSON.parse(localStorage.getItem("articulo")));
+        }
+
+    });
+    getJSONData(LIST_URL_IMAGES).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            imagenesObjArray = resultObj.data;
+            // Muestro imágenes
+            showImages(JSON.parse(localStorage.getItem("articulo")));
         }
 
     });
