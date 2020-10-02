@@ -48,7 +48,7 @@ function showCart(cart) {
               <td><input type="number" name="cant${list[i]}" id="cant${list[i]}" max="100" min="1" step="1" value="1" size="3" oninput="a=parseInt(cant${list[i]}.value); if(!(a>0)){a=1}; result${list[i]}.value=${article.price}*a"></td>
               <td>$<output name="result${list[i]}" for="cant${list[i]}" title="UYU">${article.price}</output></td>
               <td>
-                <button type="button" class="btn-menu">&vellip;
+                <button type="button" class="btn-menu">&nbsp;&vellip;&nbsp;
                   <div hidden class="btn-menu-dropdown">
                     <input type="button" value="Ver artículo" onclick="acceder(${list[i]})"/>
                     <input type="button" value="Quitar" onclick="remove(${i})"/>

@@ -65,12 +65,21 @@ header nav ul li > a:hover {
 #login button.btn-menu:hover {
     background-color: #fff9;
 }
-#login button.btn-menu::before {
-    content: "\2BC8  ";
+#login button.btn-menu::after {
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    transform: translateY(-50%);
+    content: "";
+    display: inline-block;
+    border:6px solid transparent;
+    border-top-color: gray;
+    border-bottom: 0;
+    margin-left: 4px;
 }
-#login button.btn-menu:focus::before,
-#login button.btn-menu:active::before {
-    content: "\2BC6  ";
+#login button.btn-menu:focus::after,
+#login button.btn-menu:active::after {
+    border-top-color: black;
 }
 #login div.btn-menu-dropdown span#user{
     display: block;
