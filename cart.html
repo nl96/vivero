@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Vivero - Árboles frutales</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="init.js"></script>
+    <script src="cart.js"></script>
+</head>
+
+<body>
+    <header>
+		<div id="logo">
+            <a href="index.html">
+                <img src="img/Vivero-logo.svg" alt="Eslogan">
+                <span>Vivero</span>
+            </a>
+        </div>
+		<!--Menús de navegación-->
+		<nav>
+			<ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Categorias</a></li>
+                <li><a href="#">Fotografías</a></li>
+                <li id="login"><button class="btn-menu">Cuenta
+                  <div hidden class="btn-menu-dropdown">
+                    <span id="user"></span>
+                    <a href="cart.html">Mi carrito</a>
+                    <input id="logout" type="button" value="Cerrar sesión"/>
+                  </div>
+                </button></li>
+			</ul>
+        </nav>
+    </header>
+  <main>
+    <header><h1>Carrito</h1></header>
+
+    <form id="cart" oninput="refreshTotal()">
+
+      <h2>Artículos agregados:</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Artículo</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Importe</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="listCart"></tbody>
+        <tfoot>
+          <tr>
+            <th colspan="3" style="text-align: right;">Subtotal </th>
+            <th id="outputSubtotal"></th>
+          </tr>
+        </tfoot>
+      </table>
+
+      <h2>Zona a enviar:</h2>
+      <ol type="A">
+        <li>
+          <label for="mon" title="UYU"><input type="radio" name="zona" id="mon" value="100" oninput="envio.value = '$'+mon.value" checked><span>$100 Montevideo</span></label>
+        </li>
+        <li>
+          <label for="met" title="UYU"><input type="radio" name="zona" id="met" value="200" oninput="envio.value = '$'+met.value"><span>$200 Metropolitana</span></label>
+        </li>
+        <li>
+          <label for="int" title="UYU"><input type="radio" name="zona" id="int" value="250" oninput="envio.value = '$'+int.value"><span>$250 Interior</span></label>
+        </li>
+      </ol>
+
+      <h2>Total a pagar:</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Subtotal</th>
+            <th>Envio</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="subtotal"></td>
+            <td><output name="envio" for="mon met int" title="UYU"></output></td>
+            <td id="total"></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <a href="#buy" class="btn">Comprar</a>
+  
+      <!-- Modal -->
+      <div class="modal" id="buy" aria-hidden="true">
+    
+        <a href="#close" class="modal-close" aria-hidden="true"></a>
+    
+        <div class="modal-dialog">
+    
+          <header class="modal-header">
+            <h2>Datos personales</h2>
+          </header>
+          
+          <div class="modal-body">
+
+            <h3>Nombre y apellido</h3>
+            <div class="flex">
+              <input class="w50" type="text" name="nombre" id="nombre" placeholder="Nombre" size="16" required>
+              <input class="w50" type="text" name="apellido" id="apellido" placeholder="Apellido" size="16" required>
+            </div>
+
+            <h3>Domicilio</h3>
+            
+            <p><label for="dpto">Departamento</label></p>
+            <select class="w100" name="dpto" id="dpto" required>
+              <option value="1">Artigas</option>
+              <option value="2">Canelones</option>
+              <option value="3">Cerro Largo</option>
+              <option value="4">Colonia</option>
+              <option value="5">Durazno</option>
+              <option value="6">Flores</option>
+              <option value="7">Florida</option>
+              <option value="8">Lavalleja</option>
+              <option value="9">Maldonado</option>
+              <option value="10" selected>Montevideo</option>
+              <option value="11">Paysandú</option>
+              <option value="12">Río Negro</option>
+              <option value="13">Rivera</option>
+              <option value="14">Rocha</option>
+              <option value="15">Salto</option>
+              <option value="16">San José</option>
+              <option value="17">Soriano</option>
+              <option value="18">Tacuarembó</option>
+              <option value="19">Treinta y Tres</option>
+            </select>
+
+            <p><label for="dir">Dirección</label></p>
+            <input class="w100" type="text" name="dir" id="dir" placeholder="Dirección" required>
+            
+          </div>
+    
+          <footer class="modal-footer">
+            <input type="submit" value="Finalizar compra">
+            <a href="#close" class="btn" aria-hidden="true">Cerrar</a>
+          </footer>
+    
+        </div>
+    
+      </div>
+      <!-- End Modal -->
+      
+    </form>
+
+    <dialog id="notif"></dialog>
+
+  </main>
+</body>
+
+</html>

@@ -4,34 +4,34 @@
         "title": "Peral",
         "description": "Crece de 2 hasta 20 m de altura, es una especie de árbol caducifolio y su fruto es la pera.",
         "currency": "UYU",
-        "price": "490"
+        "price": 490
     },
     {
         "code": "1",
         "title": "Limonero",
         "description": "El limonero, es un pequeño árbol frutal perenne. Su fruto es el limón,​ una fruta comestible de sabor ácido y extremadamente fragante que se usa principalmente en la alimentación.",
         "currency": "UYU",
-        "price": "660"
+        "price": 660
     },
     {
         "code": "2",
         "title": "Pomelo rosado",
         "description": "Es un árbol perennifolio, de 5 a 6 m de altura. Su fruto se consume sobre todo fresco.",
         "currency": "UYU",
-        "price": "550"
+        "price": 550
     },
     {
         "code": "3",
         "title": "Ciruelo",
         "description": "Árbol de hasta 7(10) m, caducifolio e inerme. Su fruto (la ciruela) si bien se puede consumir fresca se suele consumir mayormente desecada.",
         "currency": "UYU",
-        "price": "450"
+        "price": 450
     },
     {
         "code": "4",
         "title": "Duraznero",
         "description": "Árbol de hasta 6-8 m de altura, caducifolio e inerme. Su fruto se suele consumir de diversas formas: como fruta fresca o en conserva, ya sea cocida en almíbar o bien desecada.",
         "currency": "UYU",
-        "price": "490"
+        "price": 490
     }
 ]

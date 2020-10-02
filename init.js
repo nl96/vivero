@@ -2,6 +2,7 @@ const LIST_URL_FRUTALES = "https://nl96.github.io/vivero/frutales.json";
 const LIST_URL_COMENTARIOS = "https://nl96.github.io/vivero/comments.json";
 const LIST_URL_IMAGES = "https://nl96.github.io/vivero/article-img/code-img.json";
 const USUARIOS_URL = "https://danielk2020.github.io/biblioteca/usuarios.json";
+const CART_URL = "cart.json";
 
 var getJSONData = function(url){
     var result = {};
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     if (userLogged) {
       infoUser.style.display = "inline-block";
       userLogged = JSON.parse(userLogged);
-      user.innerText = user.innerText + "Usuario logeado: " + userLogged.email;
+      user.innerText = "Usuario logeado: " + userLogged.email;
     }
 
     document.getElementById("logout").addEventListener("click", function(){

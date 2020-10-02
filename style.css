@@ -4,7 +4,7 @@ body {
     background-color: #f2f2f2;
 }
 
-/*************Header*************/
+/************* Header *************/
 body > header {
     text-align: center;
     color: black;
@@ -31,7 +31,7 @@ header #logo span {
     font-size: 2em;
     vertical-align: text-top;
 }
-/*************Navigation bar*************/
+/************* Navigation bar *************/
 header nav {
     display: inline-block;
     vertical-align: bottom;
@@ -47,18 +47,51 @@ header nav ul li {
     padding: .5em .1em;
     margin-top: 3px;
 }
-header nav ul li a {
+header nav ul li a, header nav ul li#login button.btn-menu {
+    border: none;
+    border-radius: 0;
     text-decoration: none;
     color: inherit;
     background-color: #CEE8F0;
     padding: .5em 2em;
+    font-size: 1em;
+    line-height: 1em;
 }
-header nav ul li a:hover {
+header nav ul li > a:hover {
     text-decoration: underline;
     background-color: #fff9;
 }
+/************* Login *************/
+#login button.btn-menu:hover {
+    background-color: #fff9;
+}
+#login button.btn-menu::before {
+    content: "\2BC8  ";
+}
+#login button.btn-menu:focus::before,
+#login button.btn-menu:active::before {
+    content: "\2BC6  ";
+}
+#login div.btn-menu-dropdown span#user{
+    display: block;
+    font-size: 12px;
+    margin: .4em;
+}
+#login button.btn-menu a {
+    display: block;
+    text-decoration: none;
+    font-size: .9em;
+    background-color: white;
+    border: none;
+    border-radius: 0;
+    padding: .5em;
+    margin: 0;
+}
+#login button.btn-menu a:hover {
+    background-color: #CEE8F0;
+}
 
-/*************Main*************/
+/************* Main *************/
 main{
     background-color:  white;
     margin: 2em 2em;
@@ -68,8 +101,9 @@ main > h1{
     padding: 0 .5em;
 }
 
-/*************Buttons*************/
-input[type="button"], input[type="submit"]{
+/************* Buttons *************/
+input[type="button"], input[type="submit"], .btn {
+    font-size: 1em;
     color: black;
     border:1px solid #CEE8F0;
     border-radius: 4px;
@@ -77,33 +111,29 @@ input[type="button"], input[type="submit"]{
     background-color: lightblue;
     cursor: pointer;
 }
-input[type="button"]:hover, input[type="submit"]:hover{
+input[type="button"]:hover, input[type="submit"]:hover, .btn:hover {
     background-color: #CEE8F0;
 }
-input[type="number"], input[type="search"], input[type="submit"]{
+input[type="search"] {
     border: 1px solid lightgray;
     border-radius: 4px;
     padding: .5em;
 }
-
-/*************Login*************/
-#login {
-    display: none;
-    width: auto;
-    background-color: aliceblue;
-    transform: translate(-50%, 0%);
-    margin-left: 50%;
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    user-select: none;
 }
-#login #logout {
-    display: block;
-    margin-left: auto;
+/************* Inputs *************/
+input{
+    margin-left: 3px;
+    margin-right: 3px;
 }
-
-footer{
-    height: 4em;
+.w100{
+    width: 100%;
+    box-sizing: border-box;
 }
-
-/*************fieldset*************/
+/************* Fieldset *************/
 fieldset{
     margin-left: 0;
     margin-right: 0;
@@ -132,7 +162,7 @@ legend{
     display: inline-block;
 }
 
-/*************List*************/
+/************* List *************/
 #listado{
     clear: both;
     padding: 0 1em;
@@ -154,7 +184,7 @@ legend{
     clear: both;
 }
 
-/*************Comments*************/
+/************* Comments *************/
 #comments{
     display: block;
     margin: 2em;
@@ -190,7 +220,7 @@ legend{
     min-width: 200px;
     min-height: 40px;
 }
-/*************Checkbox stars*************/
+/************* Checkbox stars *************/
 .score{
     display: inline-block;
     position: absolute;
@@ -270,7 +300,7 @@ input#star-5:checked ~ label#star5 span.star, .star-active {
   }
 }
 
-/* Image viewer */
+/************* Image viewer *************/
 #images{
     width: 90%;
     margin:0 auto;
@@ -332,4 +362,166 @@ input#star-5:checked ~ label#star5 span.star, .star-active {
     max-width: 100%;
     vertical-align: middle;
     border-radius: 0.8vw;
+}
+
+/************* Cart *************/
+#cart{
+    margin: 2em;
+}
+#cart table, #cart ol {
+    margin: 2em;
+}
+#cart table {
+    border-collapse: collapse;
+}
+#cart tbody {
+    border-top: gray 1px solid;
+    border-bottom: gray 1px solid;
+}
+#cart th, #cart td{
+    padding: .5em 1em;
+}
+#cart td:last-child{
+    padding: .5em .5em .5em 0;
+}
+
+.btn-menu{
+    color: black;
+    text-align: center;
+    font-size: 1.06em;
+    padding: .2em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    position: relative;
+}
+.btn-menu:hover{
+    background-color: #fff;
+}
+.btn-menu:focus{
+    background-color: lightblue;
+}
+.btn-menu:focus:hover{
+    background-color: #CEE8F0;
+}
+.btn-menu:focus .btn-menu-dropdown,
+.btn-menu:active .btn-menu-dropdown, /* touch */
+.btn-menu-dropdown:hover {
+    display: block;
+}
+.btn-menu-dropdown{
+    border: 1px solid #ccc;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(100%);
+    z-index: 1;
+    margin: 0 -1px -2px 0;
+}
+.btn-menu-dropdown input{
+    font-size: .9em;
+    background-color: white;
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    margin: 0;
+}
+
+
+ol[type=A] li{
+    list-style-type: none;
+}
+ol[type=A] label{
+    display: inline-block;
+    padding: 0.4em;
+}
+input[name=zona]{
+    margin-top: 0;
+    vertical-align: middle;
+}
+input[name=zona] + span{
+    padding-left: 0.2em;
+    vertical-align: middle;
+}
+
+/************* Modal *************/
+
+@keyframes modal {
+    from {
+    top: 0%;
+    transform: translate(-50%, -100%);
+    }
+    to {
+    top:50%;
+    transform: translate(-50%, -50%);
+    }
+}
+@keyframes shade {
+    to {
+    opacity: 1;
+    }
+}
+
+.modal-close, .modal-dialog {
+    display: none;
+    opacity: 0;
+}
+.modal-close {
+    cursor: default;
+}
+.modal-close::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.75);
+}
+.modal-dialog {
+    background: #fefefe;
+    border: #333 solid 1px;
+    border-radius: 5px;
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    z-index: 2;
+    max-height: calc(100% - 2em);
+    max-width: 100%;
+    overflow: auto;
+}
+.modal:target .modal-close {
+    display: block;
+    animation: shade .5s  ease-in forwards;
+}
+.modal:target .modal-dialog {
+    display: block;
+    animation: modal .5s ease-out forwards, shade .5s  ease-in forwards;
+}
+
+.modal-header {
+  padding: 1em 2em;
+  border-bottom: grey solid 1px;
+}
+.modal-body {
+  padding: 2em;
+}
+.modal-footer {
+  border-top: grey solid 1px;
+  text-align: right;
+  padding: 1em;
+  margin: 0 1em;
+}
+.modal-footer input[type="submit"] {
+    background-color: lightgreen;
+}
+.modal-footer input[type="submit"]:hover {
+    background-color:  hsl(120, 52%, 87%);
+}
+/* Stop scrolling up */
+#close {
+  display: none;
 }
