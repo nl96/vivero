@@ -10,17 +10,17 @@ function getRadioValue(radioGroup) {
     }
 }
 // Actualizo coste total
-function refreshTotal(){
+function refreshTotal() {
     let list = cartObjArray.articleId;
     let outputTotal = document.getElementById("outputSubtotal");
     let subtotal = document.getElementById("subtotal");
     let sumSubtotal = 0;
     for (const i in list) {
         let price = frutalesArray[list[i]].price;
-        let cant = parseInt(document.getElementById("cant"+list[i]).value);
+        let cant = parseInt(document.getElementById("cant" + list[i]).value);
         if (!(cant > 0)) {
             cant = 1;
-        console.log(cant);
+            console.log(cant);
         }
         sumSubtotal += price * cant;
     }
@@ -28,7 +28,7 @@ function refreshTotal(){
     subtotal.innerHTML = outputTotal.innerHTML;
 
     let total = document.getElementById("total");
-    total.innerHTML = `<output name="total" for="mon met int cant${list.join(' cant')}" title="UYU">$${sumSubtotal+getRadioValue("zona")}</output>`;
+    total.innerHTML = `<output name="total" for="mon met int cant${list.join(' cant')}" title="UYU">$${sumSubtotal + getRadioValue("zona")}</output>`;
 }
 
 // Muestro articulos del carrito y costos
@@ -60,7 +60,7 @@ function showCart(cart) {
         };
 
         let zona = document.getElementsByName("envio")[0];
-        zona.innerHTML = '$'+getRadioValue("zona");
+        zona.innerHTML = '$' + getRadioValue("zona");
 
         refreshTotal();
     } else {
@@ -73,45 +73,56 @@ function showCart(cart) {
 }
 
 // Acceder
-function remove(pos){
+function remove(pos) {
     cartObjArray.articleId.splice(pos, 1);
     showCart(cartObjArray);
 }
 
 // Acceder
-function acceder(code){
-    localStorage.setItem("articulo", JSON.stringify({articleCode: code}));
+function acceder(code) {
+    localStorage.setItem("articulo", JSON.stringify({ articleCode: code }));
     window.location = "articulo-info.html";
 }
 
 document.addEventListener("DOMContentLoaded", function(e){
 
-    getJSONData(LIST_URL_FRUTALES).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
-            frutalesArray = resultObj.data;
+    if (!(localStorage.getItem("Vivero-User-Logged"))) {
 
-            getJSONData(CART_URL).then(function(resultObj){
-                if (resultObj.status === "ok")
-                {
-                    cartObjArray = resultObj.data;
-                    // Mustro articulos del carrito
-                    showCart(cartObjArray);
-                }
-            });
-        }
-    });
-    document.getElementById("cart").addEventListener("submit", function (e) {
-        let notif = document.getElementById("notif");
-        notif.innerHTML = "Compra realizada con éxito";
-        notif.setAttribute("open", true);
-        let cart = document.getElementById("cart");
-        cart.setAttribute("hidden", true);
+        window.location = "login.html"; // Usuarios no logueados son redireccionar al inicio de sesión
 
-        // Previene que el formulario se envíe (comportamiento por defecto del navegador)
-        if (e.preventDefault) e.preventDefault();
-        return false;
+    } else {
 
-    });
+        getJSONData(LIST_URL_FRUTALES).then(function(resultObj){
+            if (resultObj.status === "ok")
+            {
+                frutalesArray = resultObj.data;
+
+                getJSONData(CART_URL).then(function(resultObj){
+                    if (resultObj.status === "ok")
+                    {
+                        cartObjArray = resultObj.data;
+                        // Mustro articulos del carrito
+                        showCart(cartObjArray);
+                    }
+                });
+            }
+        });
+
+        document.getElementById("cart").addEventListener("submit", function (e) {
+
+            let notif = document.getElementById("notif");
+            notif.innerHTML = "Compra realizada con éxito";
+            notif.setAttribute("open", true);
+
+            let cart = document.getElementById("cart");
+            cart.setAttribute("hidden", true);
+
+            // Previene que el formulario se envíe (comportamiento por defecto del navegador)
+            if (e.preventDefault) e.preventDefault();
+            return false;
+
+        });
+
+    }
 
 });

@@ -28,20 +28,24 @@ var getJSONData = function(url){
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
-  if (document.getElementById("login")){
+
+  if (document.getElementById("login")) {
     let userLogged = localStorage.getItem("Vivero-User-Logged");
     let infoUser = document.getElementById("login");
-    let user = document.getElementById("user");
 
     if (userLogged) {
-      infoUser.style.display = "inline-block";
-      userLogged = JSON.parse(userLogged);
-      user.innerText = "Usuario logeado: " + userLogged.email;
-    }
+      infoUser.innerHTML = `<button class="btn-menu">Cuenta
+      <div hidden class="btn-menu-dropdown">
+        <span id="user">Usuario logeado: ` + JSON.parse(userLogged).email + `</span>
+        <a href="cart.html">Mi carrito</a>
+        <input id="logout" type="button" value="Cerrar sesión"/>
+      </div>
+    </button>`;
 
-    document.getElementById("logout").addEventListener("click", function(){
-      localStorage.removeItem("Vivero-User-Logged");
-      window.location = "login.html";
-    });
+      document.getElementById("logout").addEventListener("click", function () {
+        localStorage.removeItem("Vivero-User-Logged");
+        window.location = "login.html";
+      });
+    }
   }
 });

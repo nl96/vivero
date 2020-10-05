@@ -398,7 +398,7 @@ input#star-5:checked ~ label#star5 span.star, .star-active {
     color: black;
     text-align: center;
     font-size: 1.06em;
-    padding: .2em;
+    padding: 4px;
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #f4f4f4;
@@ -512,17 +512,33 @@ input[name=zona] + span{
 }
 
 .modal-header {
-  padding: 1em 2em;
-  border-bottom: grey solid 1px;
+    position: relative;
+    padding: 1em 2em;
+    border-bottom: grey solid 1px;
+}
+.modal-header a[href="#close"]::after {
+    content: "\00D7";
+    color: gray;
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 3em;
+    font-weight: 300;
+    line-height: 0.5;
+    padding: 10px;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+}
+.modal-header a[href="#close"]:hover::after {
+    color: lightgray;
 }
 .modal-body {
-  padding: 2em;
+    padding: 2em;
 }
 .modal-footer {
-  border-top: grey solid 1px;
-  text-align: right;
-  padding: 1em;
-  margin: 0 1em;
+    border-top: grey solid 1px;
+    text-align: right;
+    padding: 1em;
+    margin: 0 1em;
 }
 .modal-footer input[type="submit"] {
     background-color: lightgreen;
