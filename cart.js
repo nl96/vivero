@@ -124,9 +124,13 @@ function acceder(code) {
 
 document.addEventListener("DOMContentLoaded", function(e){
 
+    // Usuarios no logueados son redireccionar al inicio de sesión
     if (!(localStorage.getItem("Vivero-User-Logged"))) {
-
-        window.location = "login.html"; // Usuarios no logueados son redireccionar al inicio de sesión
+        sessionStorage.setItem("redirLogin", JSON.stringify({
+            from: "cart.html",
+            msg: "Debes iniciar sesión para comprar."
+        }));
+        window.location = "login.html";
 
     } else {
 
@@ -160,17 +164,16 @@ document.addEventListener("DOMContentLoaded", function(e){
                 dir: document.getElementById("dir").value,
                 cost: document.getElementById("total").innerText
             }
+
             let modalBody = document.getElementById("modal-body");
             modalBody.innerHTML = "";
+
             let p = document.createElement("p");
             modalBody.appendChild(p);
+
             p.innerHTML = `${confirmData.user}, su compra a sido realizada con excito.<br>
             Los productos serán enviados a la localidad de ${confirmData.dir} en el depantamento de ${confirmData.dpt}.<br>
             Costo total de ${confirmData.cost}.`;
-
-            // Footer modal
-            let modalFooter = document.getElementById("modal-footer");
-            modalFooter.innerHTML = `<a href="index.html" id="modalCloseBtn" class="btn" aria-hidden="true">Inicio</a>`;
 
             // Exit modal
             let modalClose = ["modalCloseOutside", "modalCloseTimes", "modalCloseBtn"];
@@ -178,6 +181,11 @@ document.addEventListener("DOMContentLoaded", function(e){
                 document.getElementById(modalClose[key]).href = "index.html";
                 document.getElementById(modalClose[key]).title = "Inicio";
             }
+
+            // Footer modal
+            document.getElementById("modal-footer").getElementsByTagName("input")[0].remove();
+            document.getElementById(modalClose[2]).innerHTML = "Inicio";
+
             
             // Previene que el formulario se envíe (comportamiento por defecto del navegador)
             if (e.preventDefault) e.preventDefault();

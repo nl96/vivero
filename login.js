@@ -11,6 +11,15 @@ function validateUser(array, userIn, passwordIn) {
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
+
+    let redirLogin = sessionStorage.getItem("redirLogin");
+    if (redirLogin) {
+        redirLogin = JSON.parse(redirLogin);
+        let alert = document.getElementById("alert");
+        alert.setAttribute("open", true);
+        alert.innerHTML = redirLogin.msg;
+    }
+
     document.getElementById("submit").addEventListener("click", function(e){
         let inputEmail = document.getElementById("inputEmail");
         let inputPassword = document.getElementById("inputPassword");
@@ -34,8 +43,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     if (validateUser(usersArray, inputEmail.value, inputPassword.value)) {
 
                         localStorage.setItem("Vivero-User-Logged", JSON.stringify({email: inputEmail.value}));
-                        
-                        window.location = "index.html";
+
+                        if (redirLogin){
+                            sessionStorage.removeItem("redirLogin");
+                            window.location = redirLogin.from;
+                        } else {
+                            window.location = "index.html";
+                        }
                     } else {
                         alert("Usuario o contraseña incorrectos");
                     }

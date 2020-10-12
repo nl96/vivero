@@ -27,19 +27,28 @@
         display: block;
         margin-left: auto;
     }
+    #alert {
+        color: rgb(255, 40, 40);
+        border: rgb(255, 40, 40) 1px solid;
+        border-radius: 5px;
+        background-color: lemonchiffon;
+    }
     </style>
       <script src="init.js"></script>
       <script src="login.js"></script>
 </head>
 <body>
-    <section class="form-signin">
-        <img class="" src="img/Vivero-logo.svg" alt="" width="72" height="72">
-        <h1 class="">Inicio de sesión</h1>
-        <label for="inputEmail">Email:</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-        <label for="inputPassword">Contraseña:</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-        <button class="" type="submit" id="submit">Ingresar</button>
-    </section>
+    <main>
+        <dialog id="alert" role="alert"></dialog>
+        <section class="form-signin">
+            <img class="" src="img/Vivero-logo.svg" alt="" width="72" height="72">
+            <h1 class="">Inicio de sesión</h1>
+            <label for="inputEmail">Email:</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+            <label for="inputPassword">Contraseña:</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+            <button class="" type="submit" id="submit">Ingresar</button>
+        </section>
+    </main>
 </body>
 </html>
