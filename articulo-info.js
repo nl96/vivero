@@ -14,7 +14,7 @@ function showArticle(code) {
             document.getElementById("currency").innerHTML = article.currency;
         }
     }
-
+    
 }
 // Muestro imágenes del producto seleccionado
 function showImages(code) {
@@ -49,6 +49,12 @@ function showImages(code) {
                     <div class="center">${navGallery}</div>
                 </div>`;
     }
+}
+
+// Comprar
+function comprar(){
+    sessionStorage.setItem("new-buy", localStorage.getItem("articulo"));
+    window.location = "cart.html";
 }
 
 // Muentro comentarios del producto seleccionado

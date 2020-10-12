@@ -143,6 +143,23 @@ document.addEventListener("DOMContentLoaded", function(e){
                     if (resultObj.status === "ok")
                     {
                         cartObjArray = resultObj.data;
+                        
+                        if (sessionStorage.getItem("new-buy")){
+                            let articleCode = JSON.parse(sessionStorage.getItem("new-buy")).articleCode;
+                            let existInCart = false;
+
+                            cartObjArray.articleId.forEach(id => {
+                                if (id == articleCode){
+                                    existInCart = true
+                                }
+                            });
+                            
+                            if (!existInCart){
+                                cartObjArray.articleId.push(articleCode);
+                            }
+
+                            sessionStorage.removeItem("new-buy");
+                        }
                         // Mustro articulos del carrito
                         showCart(cartObjArray);
                     }
