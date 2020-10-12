@@ -516,7 +516,7 @@ input[name=zona] + span{
     padding: 1em 2em;
     border-bottom: grey solid 1px;
 }
-.modal-header a[href="#close"]::after {
+.modal-header a#modalCloseTimes::after {
     content: "\00D7";
     color: gray;
     font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -549,4 +549,10 @@ input[name=zona] + span{
 /* Stop scrolling up */
 #close {
   display: none;
+}
+.flex{
+    display: flex;
+}
+.flex div{
+    padding: 0 4px;
 }

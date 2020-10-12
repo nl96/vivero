@@ -18,14 +18,14 @@
                 <span>Vivero</span>
             </a>
         </div>
-		<!--Menús de navegación-->
-		<nav>
-			<ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#">Categorias</a></li>
-                <li><a href="#">Fotografías</a></li>
-                <li id="login"><a href="login.html">Ingresar</a></li>
-			</ul>
+		    <!--Menús de navegación-->
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#">Categorias</a></li>
+            <li><a href="#">Fotografías</a></li>
+            <li id="login"><a href="login.html">Ingresar</a></li>
+          </ul>
         </nav>
     </header>
   <main>
@@ -90,46 +90,50 @@
       <!-- Modal -->
       <div class="modal" id="buy" aria-hidden="true">
     
-        <a href="#close" class="modal-close" aria-hidden="true"></a>
+        <a href="#close" id="modalCloseOutside" class="modal-close" aria-hidden="true"></a>
     
         <div class="modal-dialog">
     
-          <header class="modal-header">
+          <header class="modal-header" id="modal-header">
             <h2>Datos personales</h2>
-            <a href="#close" aria-hidden="true"></a>
+            <a href="#close" id="modalCloseTimes" aria-hidden="true"></a>
           </header>
           
-          <div class="modal-body">
+          <div class="modal-body" id="modal-body">
 
             <h3>Nombre y apellido</h3>
             <div class="flex">
-              <input class="w50" type="text" name="nombre" id="nombre" placeholder="Nombre" size="16" required>
-              <input class="w50" type="text" name="apellido" id="apellido" placeholder="Apellido" size="16" required>
+              <div>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" size="16" required>
+              </div>
+              <div>
+                <input type="text" name="apellido" id="apellido" placeholder="Apellido" size="16" required>
+              </div>
             </div>
 
             <h3>Domicilio</h3>
             
             <p><label for="dpto">Departamento</label></p>
             <select class="w100" name="dpto" id="dpto" required>
-              <option value="1">Artigas</option>
-              <option value="2">Canelones</option>
-              <option value="3">Cerro Largo</option>
-              <option value="4">Colonia</option>
-              <option value="5">Durazno</option>
-              <option value="6">Flores</option>
-              <option value="7">Florida</option>
-              <option value="8">Lavalleja</option>
-              <option value="9">Maldonado</option>
-              <option value="10" selected>Montevideo</option>
-              <option value="11">Paysandú</option>
-              <option value="12">Río Negro</option>
-              <option value="13">Rivera</option>
-              <option value="14">Rocha</option>
-              <option value="15">Salto</option>
-              <option value="16">San José</option>
-              <option value="17">Soriano</option>
-              <option value="18">Tacuarembó</option>
-              <option value="19">Treinta y Tres</option>
+              <option>Artigas</option>
+              <option>Canelones</option>
+              <option>Cerro Largo</option>
+              <option>Colonia</option>
+              <option>Durazno</option>
+              <option>Flores</option>
+              <option>Florida</option>
+              <option>Lavalleja</option>
+              <option>Maldonado</option>
+              <option selected>Montevideo</option>
+              <option>Paysandú</option>
+              <option>Río Negro</option>
+              <option>Rivera</option>
+              <option>Rocha</option>
+              <option>Salto</option>
+              <option>San José</option>
+              <option>Soriano</option>
+              <option>Tacuarembó</option>
+              <option>Treinta y Tres</option>
             </select>
 
             <p><label for="dir">Dirección</label></p>
@@ -137,9 +141,9 @@
             
           </div>
     
-          <footer class="modal-footer">
+          <footer class="modal-footer" id="modal-footer">
             <input type="submit" value="Finalizar compra">
-            <a href="#close" class="btn" aria-hidden="true">Cerrar</a>
+            <a href="#close" id="modalCloseBtn" class="btn" aria-hidden="true">Cerrar</a>
           </footer>
     
         </div>

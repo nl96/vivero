@@ -9,6 +9,42 @@ function getRadioValue(radioGroup) {
         }
     }
 }
+// Actualizo lista de departamentos
+function dpto(zona){
+    let dpto = document.getElementById("dpto");
+    dpto.innerHTML = "";
+
+    let listDpto = {
+        mon: "Montevideo",
+        met: ["Canelones", "San José"],
+        int: ["Artigas", "Cerro Largo", "Colonia", "Durazno", "Flores", "Florida", "Lavalleja", "Maldonado", "Paysandú", "Río Negro", "Rivera", "Rocha", "Salto", "Soriano", "Tacuarembó", "Treinta y Tres"]
+    }
+    
+    switch (zona) {
+        case 100:
+            let option = document.createElement("option");
+            option.innerHTML = listDpto.mon;
+            dpto.appendChild(option);
+            break;
+        case 200:
+            for(let key in listDpto.met) {
+                let option = document.createElement("option");
+                option.innerHTML = listDpto.met[key];
+                dpto.appendChild(option);
+            }
+            break;
+        case 250:
+            for(let key in listDpto.int) {
+                let option = document.createElement("option");
+                option.innerHTML = listDpto.int[key];
+                dpto.appendChild(option);
+            }
+            break;
+    
+        default:
+            break;
+    }
+}
 // Actualizo coste total
 function refreshTotal() {
     let list = cartObjArray.articleId;
@@ -29,6 +65,8 @@ function refreshTotal() {
 
     let total = document.getElementById("total");
     total.innerHTML = `<output name="total" for="mon met int cant${list.join(' cant')}" title="UYU">$${sumSubtotal + getRadioValue("zona")}</output>`;
+
+    dpto(getRadioValue("zona"));
 }
 
 // Muestro articulos del carrito y costos
@@ -55,7 +93,7 @@ function showCart(cart) {
                   </div>
                 </button>
               </td>
-            </tr>`
+            </tr>`;
             listCart.innerHTML += item;
         };
 
@@ -110,13 +148,37 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         document.getElementById("cart").addEventListener("submit", function (e) {
 
-            let notif = document.getElementById("notif");
-            notif.innerHTML = "Compra realizada con éxito";
-            notif.setAttribute("open", true);
+            // Header modal
+            let modalHeader = document.getElementById("modal-header").getElementsByTagName("h2")[0];
+            modalHeader.innerHTML = "Resumen de compra"
 
-            let cart = document.getElementById("cart");
-            cart.setAttribute("hidden", true);
+            
+            // Body modal
+            let confirmData = {
+                user: document.getElementById("nombre").value + " " + document.getElementById("apellido").value,
+                dpt: document.getElementById("dpto").value,
+                dir: document.getElementById("dir").value,
+                cost: document.getElementById("total").innerText
+            }
+            let modalBody = document.getElementById("modal-body");
+            modalBody.innerHTML = "";
+            let p = document.createElement("p");
+            modalBody.appendChild(p);
+            p.innerHTML = `${confirmData.user}, su compra a sido realizada con excito.<br>
+            Los productos serán enviados a la localidad de ${confirmData.dir} en el depantamento de ${confirmData.dpt}.<br>
+            Costo total de ${confirmData.cost}.`;
 
+            // Footer modal
+            let modalFooter = document.getElementById("modal-footer");
+            modalFooter.innerHTML = `<a href="index.html" id="modalCloseBtn" class="btn" aria-hidden="true">Inicio</a>`;
+
+            // Exit modal
+            let modalClose = ["modalCloseOutside", "modalCloseTimes", "modalCloseBtn"];
+            for(let key in modalClose) {
+                document.getElementById(modalClose[key]).href = "index.html";
+                document.getElementById(modalClose[key]).title = "Inicio";
+            }
+            
             // Previene que el formulario se envíe (comportamiento por defecto del navegador)
             if (e.preventDefault) e.preventDefault();
             return false;
