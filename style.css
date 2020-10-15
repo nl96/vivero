@@ -114,14 +114,15 @@ main > h1{
 input[type="button"], input[type="submit"], .btn {
     font-size: 1em;
     color: black;
-    border:1px solid #CEE8F0;
+    border:1px solid hsl(194, 53%, 85%);
     border-radius: 4px;
     padding: .5em;
-    background-color: lightblue;
+    background-color: hsl(195, 73%, 85%);
     cursor: pointer;
 }
 input[type="button"]:hover, input[type="submit"]:hover, .btn:hover {
-    background-color: #CEE8F0;
+    border:1px solid hsl(194, 53%, 90%);
+    background-color: hsl(194, 76%, 90%);
 }
 input[type="search"] {
     border: 1px solid lightgray;

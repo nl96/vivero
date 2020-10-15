@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
       infoUser.innerHTML = `<button class="btn-menu">Cuenta
       <div hidden class="btn-menu-dropdown">
         <span id="user">Usuario logeado: ` + JSON.parse(userLogged).email + `</span>
-        <a href="cart.html">Mi carrito</a>
+        <a href="user-profile.html">Mi Perfil</a>
+        <a href="cart.html">Mi Carrito</a>
         <input id="logout" type="button" value="Cerrar sesión"/>
       </div>
     </button>`;

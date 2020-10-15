@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         alert.innerHTML = redirLogin.msg;
     }
 
-    document.getElementById("submit").addEventListener("click", function(e){
+    document.getElementById("login").addEventListener("click", function(e){
         let inputEmail = document.getElementById("inputEmail");
         let inputPassword = document.getElementById("inputPassword");
         let camposCompletos = true;

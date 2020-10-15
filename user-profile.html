@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Perfil</title>
+    <style>
+    body {
+        background: white;
+    }
+    main{
+        text-align: center;
+    }
+    form {
+        display: inline-block;
+        text-align: initial;
+        background-color: rgb(255, 250, 170);
+        border: darkgoldenrod 1px solid;
+        color: black;
+        border-radius: 0.5em;
+        padding: 1em;
+        margin: 1em auto;
+        min-width: 300px;
+    }
+    .cont-imgUser{
+        display: block;
+        width: 72px;
+        max-height: 72px;
+    }
+    #imgUser{
+        align-items: center;
+        max-width: 72px;
+        max-height: 72px;
+        margin: auto;
+    }
+    input{
+        display: block;
+        margin: auto;
+        margin-bottom: 1em;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    input:nth-last-of-type(1){
+        margin-top: 1em;
+        margin-bottom: 0em;
+    }
+    button{
+        display: block;
+        margin-left: auto;
+    }
+    #alert {
+        color: rgb(255, 40, 40);
+        border: rgb(255, 40, 40) 1px solid;
+        border-radius: 5px;
+        background-color: lemonchiffon;
+    }
+    .ml-10{
+        padding-left: 5%;
+    }
+    .flex{
+        display: flex;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+    .w100{
+        width: 100%;
+    }
+    label{
+        margin-left: 0.5em;
+    }
+
+    </style>
+      <script src="init.js"></script>
+      <script src="user-profile.js"></script>
+</head>
+<body>
+    <header>
+		<div id="logo">
+            <a href="index.html">
+                <img src="img/Vivero-logo.svg" alt="Eslogan">
+                <span>Vivero</span>
+            </a>
+        </div>
+		    <!--Menús de navegación-->
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#">Categorias</a></li>
+            <li><a href="#">Fotografías</a></li>
+            <li id="login"><a href="login.html">Ingresar</a></li>
+          </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="userProfile" class="form-profile">
+
+            <div class="flex">
+                <div class="cont-imgUser ml-10">
+                    <img id="imgUser" src="img/user.svg" alt="Imagen de perfil">
+                </div>
+                <h1 class="ml-10 w100">Perfil</h1>
+            </div>
+
+            <label for="inputAvatar">Imagen de Perfil:</label>
+            <input type="text" id="inputAvatar" class="form-control" placeholder="URL de su imagen de perfil" pattern="https?://.+" title="Incluir http:// o https://">
+
+            <label for="inputName">Nombre:</label>
+            <input type="text" id="inputName" class="form-control" placeholder="Nombre" pattern="[A-Za-z]{2,}$" maxlength="26" required autofocus>
+
+            <label for="inputLastName">Apellido:</label>
+            <input type="text" id="inputLastName" class="form-control" placeholder="Apellido" pattern="[A-Za-z]{2,}$" maxlength="26" required>
+
+            <label for="inputAge">Edad:</label>
+            <input type="number" id="inputAge" class="form-control" placeholder="+18" max="100" min="18">
+
+            <label for="inputEmail">Email:</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email" required>
+
+            <label for="inputPhone">Teléfono:</label>
+            <input type="tel" pattern="[0-9]{9}" id="inputPhone" class="form-control" placeholder="Teléfono (Ej: 091234567)">
+
+            <input class="btn" type="submit" id="saveProfile" value="Guardar datos">
+        </form>
+    </main>
+</body>
+</html>
