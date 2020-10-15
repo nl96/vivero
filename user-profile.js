@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 phone: document.getElementById("inputPhone").value
             }
             localStorage.setItem("data-User-Profile", JSON.stringify(newDataUser))
+            window.location = "user-profile.html";
 
             // Previene que el formulario se envíe (comportamiento por defecto del navegador)
             if (event.preventDefault) event.preventDefault();
